@@ -4,6 +4,7 @@ import {environment} from '../../../environments/environment';
 import {Authorization} from '../../model/Authorization';
 import {AuthorizationResponse} from '../../model/AuthorizationResponse';
 import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,9 @@ export class LoginService {
     return this.httpClient.post<AuthorizationResponse>(this.url + '/login' , authorization);
   }
 
-  validateToken(): Observable<void>{
-    return this.httpClient.get<void>(this.url + '/login/verifyToken');
+  validateToken(): Observable<boolean>{
+    const token = localStorage.getItem('jwt');
+    return this.httpClient.get<boolean>(this.url + '/login/verifyToken?token=' + token);
   }
 
 }
