@@ -1,0 +1,13 @@
+img {
+  height: 400px;
+}
+
+.carousel-caption > h5 {
+  font-size: 50px;
+  color: #ef0b0b;
+}
+
+
+.carousel-caption > p {
+  font-size: 40px;
+}

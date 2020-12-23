@@ -1,0 +1,99 @@
+<form (submit)="onSubmit()">
+  <div class="form-row">
+    <div class="col-md-3 mb-2">
+      <label for="validationServer01">First name</label>
+      <input type="text" class="form-control is-valid" id="validationServer01"
+             placeholder="First name" name="firstname"
+             [(ngModel)]="user.firstName" required
+             [class.is-valid]="submitted && !errorMessages.firstName"
+             [class.is-invalid]="submitted && errorMessages.firstName">
+      <div class="valid-feedback">
+        It's optional field
+      </div>
+      <div class="invalid-feedback" *ngFor="let message of errorMessages.firstName">
+        {{message}}
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-2">
+      <label for="validationServer02">Last name</label>
+      <input type="text" class="form-control is-valid" id="validationServer02"
+             placeholder="Last name" name="lastname"
+             [(ngModel)]="user.lastName" required
+             [class.is-valid]="submitted && !errorMessages.lastName"
+             [class.is-invalid]="submitted && errorMessages.lastName">
+      <div class="valid-feedback">
+        It's optional field
+      </div>
+      <div class="invalid-feedback" *ngFor="let message of errorMessages.lastName">
+        {{message}}
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-row">
+    <div class="col-md-3 mb-2">
+      <label for="validationLogin">Login</label>
+      <input type="text" class="form-control is-valid" id="validationLogin"
+             placeholder="Login *" name="login"
+             [(ngModel)]="user.login" required
+      [class.is-valid]="submitted && !errorMessages.login"
+      [class.is-invalid]="submitted && errorMessages.login">
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+      <div class="invalid-feedback" *ngFor="let message of errorMessages.login">
+        {{message}}
+      </div>
+    </div>
+    <div class="col-md-3 mb-2">
+      <label for="validationPassword">Password</label>
+      <input type="password" class="form-control is-valid" id="validationPassword"
+             placeholder="Password *" name="password"
+             [(ngModel)]="user.password" required
+             [class.is-valid]="submitted && !errorMessages.password"
+             [class.is-invalid]="submitted && errorMessages.password">
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+      <div class="invalid-feedback" *ngFor="let message of errorMessages.password">
+        {{message}}
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-3 mb-2">
+      <label for="validationEmail">Email</label>
+      <input type="email" class="form-control is-valid" id="validationEmail"
+             placeholder="Email *" name="email"
+             [(ngModel)]="user.email" required
+             [class.is-valid]="submitted && !errorMessages.email"
+             [class.is-invalid]="submitted && errorMessages.email">
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+      <div class="invalid-feedback" *ngFor="let message of errorMessages.email">
+        {{message}}
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-3 mb-2">
+      <label for="validationBirthDay">Birth Date</label>
+      <input type="date" class="form-control is-valid" id="validationBirthDay"
+             name="birthday" [(ngModel)]="user.birthDate"
+             [class.is-valid]="submitted && !errorMessages.birthDate"
+             [class.is-invalid]="submitted && errorMessages.birthDate">
+      <div class="valid-feedback">
+        It's optional field
+      </div>
+      <div class="invalid-feedback" *ngFor="let message of errorMessages.birthDate">
+        {{message}}
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
