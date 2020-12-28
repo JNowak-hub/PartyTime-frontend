@@ -22,8 +22,6 @@ export class LoggingComponent implements OnInit {
 
 
   onSubmit(): void {
-
-    console.log(this.authorization);
     this.loginService.login(this.authorization)
       .subscribe(
         res => {
