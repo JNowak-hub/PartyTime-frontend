@@ -11,16 +11,16 @@ export class InitService {
   }
 
   public Init(): void {
-    // if (localStorage.getItem('jwt')) {
-    //   if (this.loginService.validateToken().pipe(
-    //     map(() => true,
-    //       () => false))) {
-    //     console.log('authg');
-    //     this.loginService.isAuthenticated = true;
-    //     console.log(this.loginService.isAuthenticated);
-    //   }
-    // }
-    this.loginService.isAuthenticated = false;
-    localStorage.clear();
+    if (localStorage.getItem('jwt')) {
+      if (this.loginService.validateToken().pipe(
+        map(() => true,
+          () => false))) {
+        this.loginService.isAuthenticated = true;
+      }
+    } else {
+      this.loginService.isAuthenticated = false;
+      localStorage.clear();
+    }
+
   }
 }
